@@ -1,6 +1,13 @@
 import React from 'react'
 
+const renderDataSantri = (props) => {
+   return props.searchedSantri && props.value 
+            ? props.newDataSantri
+            : props.dataSantri
+}
+
 const DataSantri = (props) => {
+   console.log(props)
    return (
       <table className="table table-hover text-white">
       <thead>
@@ -12,7 +19,7 @@ const DataSantri = (props) => {
          </tr>
       </thead>
       <tbody>
-         { props.dataSantri.map((item, id) => (
+         { renderDataSantri(props).map((item, id) => (
             <tr key={id}>
                <th scope="row">{item.id}</th>
                <td>{item.name}</td>
@@ -47,7 +54,7 @@ const DataSantri = (props) => {
                         className   = "form-control" 
                         placeholder = "Nama Santri.."
                         onChange    = {props.onHandleInput}
-                        name        = "name"
+                        name        = "name" 
                         value       = {props.postDataSantri.name}
                      />
                      <label htmlFor="exampleInputEmail1" className="mt-4">Update Jurusan</label>

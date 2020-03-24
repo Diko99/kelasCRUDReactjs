@@ -4,9 +4,11 @@ import DataSantri from './dataSantri'
 const Contents = (props) => {
    return ( 
       <div className="container-fluid">
-         { props.dataSantri && props.searchedSantri ? 
+         { props.dataSantri ? 
             <DataSantri 
+            value             = {props.value}
             searchedSantri    = {props.searchedSantri}
+            newDataSantri     = {props.newDataSantri}
             onHandleUpdate    = {props.onHandleUpdate}
             postDataSantri    = {props.postDataSantri}
             onHandleInput     = {props.onHandleInput}

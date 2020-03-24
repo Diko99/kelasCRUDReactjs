@@ -11,7 +11,6 @@ class App extends Component {
         dataSantri : [],
         newDataSantri : [],
         value : '',
-        searchedSantri : null,
         postDataSantri : {
           name: '',
           username : ''
@@ -48,7 +47,7 @@ class App extends Component {
     let NewPostDataSantri = {...this.state.postDataSantri}
     NewPostDataSantri[event.target.name] = event.target.value
     let timeid = new Date().getTime()
-
+    
     if(!this.state.isUpdate){
       NewPostDataSantri['id'] = timeid
     }
@@ -102,7 +101,7 @@ class App extends Component {
           )
         )
         this.setState({
-          dataSantri : searchedSantri
+          newDataSantri : searchedSantri
         })
       }
     })
@@ -110,7 +109,7 @@ class App extends Component {
   render() {
     
     const { onHandleInput, simpanDataSantri, onHandleDelete, onHandleUpdate, dataUpdate, searchedSantri } = this
-    const { dataSantri,newDataSantri, postDataSantri } = this.state
+    const { dataSantri, newDataSantri, postDataSantri, value } = this.state
 
     return (
       <div className="container-fluid bg-info text-light">
@@ -127,9 +126,11 @@ class App extends Component {
           simpanDataSantri  = {simpanDataSantri}
           onHandleDelete    = {onHandleDelete}
           dataUpdate        = {dataUpdate}
+          newDataSantri     = {newDataSantri}
           dataSantri        = {dataSantri}
           postDataSantri    = {postDataSantri}
           searchedSantri    = {searchedSantri}
+          value             = {value}
         />
       </div>
     )
